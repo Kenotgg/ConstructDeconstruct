@@ -51,7 +51,7 @@ namespace ConstructDeconstruct
                     MainListBox.Items.Add(product);
                 }
 
-            }//Git you are here?
+            }
             catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message);
