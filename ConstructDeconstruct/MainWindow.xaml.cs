@@ -30,13 +30,8 @@ namespace ConstructDeconstruct
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(priceText))
             {
-                
-                if (!string.IsNullOrWhiteSpace(quantityText)) 
-                {
-                    MessageBox.Show("Не заполнены поля Имя или Цена.");
-                    return;
-                }
-                return; 
+                MessageBox.Show("Необходимо заполнить поля \"Имя\" и \"Цена\".");
+                return;
             }
             else if(FindDuplicatedName(name))
             {
@@ -44,19 +39,19 @@ namespace ConstructDeconstruct
                 return;
             }
             try
-            {                
+            {
                 if (string.IsNullOrWhiteSpace(quantityText) && !string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(priceText))
                 {
-                        Product product = new Product(name, Convert.ToDouble(priceText));
-                        MainListBox.Items.Add(product);
-                    return;
+                    Product product = new Product(name, Convert.ToDouble(priceText));
+                    MainListBox.Items.Add(product);   
                 }
-                else if(!string.IsNullOrWhiteSpace(quantityText) && !string.IsNullOrWhiteSpace(name) && priceText != null)
+                else if (!string.IsNullOrWhiteSpace(quantityText) && !string.IsNullOrWhiteSpace(name) && priceText != null)
                 {
-                        Product product = new Product(name, Convert.ToDouble(priceText), Convert.ToInt32(quantityText));
-                        MainListBox.Items.Add(product);                
+                    Product product = new Product(name, Convert.ToDouble(priceText), Convert.ToInt32(quantityText));
+                    MainListBox.Items.Add(product);
                 }
-            }
+
+            }//Git you are here?
             catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message);
